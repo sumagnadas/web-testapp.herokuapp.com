@@ -3,7 +3,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return "<h1>INDEX PAGE</h1>"
+    return render_template('index.html', title='HOME PAGE')
 
 @app.route('/docs')
 def docs():
