@@ -17,7 +17,7 @@ def about():
             for i in range(0, int(20000000 * 0.1)):
                 pass
     return Response(stream_with_context(generate()))"""
-    return render_template("about.html", list=list, sleep=my_sleep)
+    return render_template("about.html")
 
 if __name__ == "__main__":
     app.run()
