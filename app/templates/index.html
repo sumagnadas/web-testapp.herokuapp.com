@@ -1,13 +1,20 @@
+<link rel="stylesheet" href="static/pages.css">
 <html>
     <head>
         <title>Testing flask out on Heroku</title>
     </head>
     <body>
-        <h1>{{ title }}</h1>
-        {% if homePressed%}
-          <p>You are already at home</p>
-        {% endif %}
-        <p><a href="/about">About</a></p>
-        <p><a href="{{ url_for('index', location='home')}}">Home</a></p>
+      <div id="nav">
+        <a href="{{url_for('index', location="home")}}" class="nav">Home</a>
+        <a href="/about" class="nav">About</a>
+      </div>
+      {% if homePressed%}
+        <p><center>You are already at home</center></p>
+      {% endif %}
+      <br><br>
+      <span class="brief">
+      <h1>
+      Hello, I am Sumagna Das</h1>
+      Hi, I am a student at Nava Nalanda High School, Kolkata.
     </body>
 </html>
