@@ -9,14 +9,17 @@ def index():
 #def docs():
 #    return render_template('index.html', title='DOCS')
 
-@app.route('/about')
-def about():
-    """def generate():
+@app.route("/stream")
+def stream():
+    def generate():
         for i in list("Sumagna Das"):
             yield i
             for i in range(0, int(20000000 * 0.1)):
                 pass
-    return Response(stream_with_context(generate()))"""
+    return Response(stream_with_context(generate()))
+
+@app.route('/about')
+def about():
     return render_template("about.html")
 
 if __name__ == "__main__":
