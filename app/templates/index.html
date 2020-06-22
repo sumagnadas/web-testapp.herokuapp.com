@@ -4,8 +4,10 @@
     </head>
     <body>
         <h1>{{ title }}</h1>
-        <p><a href="/docs">Docs</a></p>
+        {% if homePressed%}
+          <p>You are already at home</p>
+        {% endif %}
         <p><a href="/about">About</a></p>
-        <p><a href="/">Home</a></p>
+        <p><a href="{{ url_for('index', location='home')}}">Home</a></p>
     </body>
 </html>
