@@ -1,28 +1,51 @@
 .labels{
   font-weight: bold;
+  font-family: cursive;
+  font-size: 25;
 }
-
 .values{
-  color: #4E9A06;
-  margin-left: 10
+  font-weight: bold;
+  font-style: oblique;
+  font-size: 20;
 }
-body{
-  /*text-align: center;*/
-  background-color: #ccdbd0
+.name{
+  color: blue;
+  font-size: 35;
 }
 .brief{
+  font-weight: bolder;
   margin-left: 100px;
   padding-top: 10%;
 }
-#nav{
+.contact a:link, .contact a:visited{
+  margin-right: 50px;
+  text-decoration: none;
+  font-weight: lighter;
+  padding-bottom: 10%;
+  font-size: 18;
+}
+.contact a:hover{
+  text-decoration: underline;
+}
+hr{
+  margin-top: 30%;
+  margin-right: 10%;
+}
+body{
+  margin-left: 10%;
+  background-color: #ccdbd0
+}
+nav{
+  border-width: medium;
+  border-radius: 100px;
+  border-color: black;
   width: 100%;
-  height: 25px;
-  flex-grow: 3;
-  background-color: rgba(66, 102, 0, 0);
+  height: 45px;
+  background-color: rgba(0, 0, 0, 0);
   text-align: right;
 }
 
-#nav a:link, #nav a:visited{
+nav a:link, nav a:visited{
     margin-right: 40;
     font-weight: bold;
     color: blue;
@@ -30,11 +53,10 @@ body{
     margin-bottom: 100;
 }
 
-#nav a {
+nav a {
   display: inline-block;
 }
-
-#nav a::after {
+nav a::after {
   margin-top: 10;
   text-align: center;
   content: '';
@@ -42,8 +64,8 @@ body{
   height: 9px;
   display: block;
   background: blue;
-  transition: 300ms;
+  transition: 100ms;
 }
-#nav a:hover::after{
+nav a:hover::after{
   width: 100%;
 }

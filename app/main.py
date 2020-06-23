@@ -1,4 +1,11 @@
 from flask import Flask, render_template, stream_with_context, Response, request
+from datetime import date, timedelta
+
+birthday = date(2006, 1, 11)
+today = date.today()
+
+age = (today - birthday)/ timedelta(365)
+age = "14+" if age > int(age) else "14"
 app = Flask(__name__)
 
 @app.route('/')
@@ -9,24 +16,9 @@ def index():
     else:
         return render_template('index.html', title='HOME PAGE')
 
-#@app.route('/docs')
-#def docs():
-#    return render_template('index.html', title='DOCS')
-
-"""@app.route("/stream")
-def stream():
-    def generate():
-        yield "<link rel=\"stylesheet\" href=\"static/about.css\">\n<br><span class=\"name\">&gt;&nbsp&nbsp"#<span class=\"labels\">Name</span>\t"
-        for i in list("Sumagna Das"):
-            yield i
-            for i in range(0, int(10000000 * 0.5)):
-                pass
-        yield "</span>"
-    return Response(stream_with_context(generate()))"""
-
 @app.route('/about')
 def about():
-    return render_template("about.html")
+    return render_template("about.html", age=age)
 
 if __name__ == "__main__":
     app.run()

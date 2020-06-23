@@ -1,22 +1,28 @@
 <link rel="stylesheet" href="static/pages.css">
+<!DOCTYPE html>
 <html>
     <head>
         <title>Testing flask out on Heroku</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-      <div id="nav">
-        <a href="{{url_for('index', location="home")}}" class="nav">Home</a>
-        <a href="/about" class="nav">About</a>
-      </div>
+      <nav>
+        <a href="{{url_for('index', location="home")}}">Home</a>
+        <a href="/about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
       {% if homePressed%}
         <p><center>You are already at home</center></p>
       {% endif %}
       <br><br>
       <span class="brief">
-      <h1>
-      Hello, I am Sumagna Das</h1>
-      Hi, I am a student at Nava Nalanda High School, Kolkata.
-      <span>
+      <h1>Hi, This is Sumagna Das</h1>
+      14. Student. Learner. Almost-programmer.
+      </span>
+      <hr>
+      <span class="contact", id="contact">
+          <a href="https://github.com/sumagnadas">github/sumagnadas</a>
+          <a href="mailto:sumagnadas@gmail.com">email</a>
+      </span class="contact">
     </body>
 </html>

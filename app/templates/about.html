@@ -1,14 +1,30 @@
 <link rel="stylesheet" href="static/pages.css">
+<!DOCTYPE html>
 <html>
   <head>
     <title>About Me</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <div id="nav">
-      <a href="/" class="nav">Home</a>
-      <a href="/about" class="nav">About</a>
-    </div>
-    <span class="labels">Name</span>&#9;<span class="values">Sumagna Das</span>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <h1>About Me</h1>
+    <span class="name">Sumagna Das</span><br><br>
+    <span class="labels">Age:</span> <span class="values">{{ age }}</span><br><br>
+    <span class="labels">Occupation:</span> <span class="values">Student at Nava Nalanda High School</span><br><br>
+    <span class="labels">Hobbies:</span> <span class="values">Programming, Gaming, Sports</span><br><br>
+    <span class="labels">Dream:</span> <span class="values">To become a Software Developer</span><br><br>
+    <span class="labels">Achievements:-</span><br>
+    <ul><span class="values">
+      <li>Google Code-In 2019 finalist for BRL-CAD</li>
+    </span></ul>
+    <hr>
+    <span class="contact", id="contact">
+        <a href="https://github.com/sumagnadas">github/sumagnadas</a>
+        <a href="mailto:sumagnadas@gmail.com">email</a>
+    </span class="contact">
   </body>
 </html>
