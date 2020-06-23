@@ -19,6 +19,7 @@
 }
 .contact a:link, .contact a:visited{
   margin-right: 50px;
+  font-size: 20;
   text-decoration: none;
   font-weight: lighter;
   padding-bottom: 10%;
