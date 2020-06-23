@@ -9,7 +9,7 @@ age = "14+" if age > int(age) else "14"
 app = Flask(__name__)
 
 @app.route('/')
-def index():
+def home():
     location = request.args.get('location')
     if location == "home":
         return render_template('index.html', title='HOME PAGE', homePressed=True)
