@@ -112,7 +112,5 @@ def detail(slug):
     entry = get_object_or_404(query, Entry.slug == slug)
     return render_template('detail.html', entry=entry)
 
-database.create_tables([Entry, FTSEntry])
-
 if __name__ == "__main__":
     app.run()

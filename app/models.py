@@ -90,3 +90,5 @@ def clean_querystring(request_args, *keys_to_remove, **new_values):
         querystring.pop(key, None)
     querystring.update(new_values)
     return urllib3.urlencode(querystring)
+
+database.create_tables([Entry, FTSEntry], safe=True)
