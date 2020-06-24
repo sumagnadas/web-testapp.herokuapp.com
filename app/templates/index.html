@@ -1,16 +1,8 @@
-<link rel="stylesheet" href="static/pages.css">
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Sumagna Das' Website</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
-    </head>
-    <body>
-      <nav>
-        <a href="{{url_for('home', location="home")}}">Home</a>
-        <a href="/about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
+{% extends "base.html" %}
+
+{% block title %} Sumagna Das' Website {% endblock %}
+
+{% block content %}
       {% if homePressed%}
         <p><center>You are already at home</center></p>
       {% endif %}
@@ -19,10 +11,4 @@
       <h1>Hi, This is Sumagna Das</h1>
       14. Student. Learner. Almost-programmer.
       </span>
-      <hr>
-      <span class="contact", id="contact">
-        <a href="https://github.com/sumagnadas"><img src="static/github-icon.png" height=18, width=18> github/sumagnadas</a>
-        <a href="mailto:sumagnadas@gmail.com">📬email</a>
-      </span class="contact">
-    </body>
-</html>
+{% endblock %}

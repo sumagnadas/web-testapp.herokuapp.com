@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="/static/pages.css">
+<!doctype html>
+<html>
+  <head>
+    {% block head %}
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    {% endblock %}
+  </head>
+  <body>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="/blog">Blog</a>
+    </nav>
+    {% block content_title %}{% endblock %}
+    {% block content %}{% endblock %}
+    <hr>
+    <span class="contact", id="contact">
+      <a href="https://github.com/sumagnadas"><img src="/static/github-icon.png" height=18, width=18> github/sumagnadas</a>
+      <a href="mailto:sumagnadas@gmail.com">📬email</a>
+    </span class="contact">
+  </body>
+</html>
