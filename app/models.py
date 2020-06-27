@@ -73,7 +73,6 @@ class Entry(flask_db.Model):
             markdown_content,
             oembed_providers,
             urlize_all=True)
-        self.html_preview = Markup(oembed_content)
         return Markup(oembed_content)
 
 
