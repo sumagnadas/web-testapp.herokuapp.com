@@ -68,18 +68,21 @@ def drafts():
 @login_required
 def create():
     if request.method == 'POST':
-        if request.form.get('title') and request.form.get('content'):
-            entry = Entry.create(
+        if request.form['submit'] == 'Create':
+            if request.form.get('title') and request.form.get('content'):
+                entry = Entry.create(
                 title=request.form['title'],
                 content=request.form['content'],
                 published=request.form.get('published') or False)
-            flash('Entry created successfully.', 'success')
-            if entry.published:
-                return redirect(url_for('detail', slug=entry.slug))
+                flash('Entry created successfully.', 'success')
+                if entry.published:
+                    return redirect(url_for('detail', slug=entry.slug))
+                else:
+                    return redirect(url_for('edit', slug=entry.slug))
             else:
-                return redirect(url_for('edit', slug=entry.slug))
-        else:
-            flash('Title and Content are required.', 'danger')
+                flash('Title and Content are required.', 'danger')
+        elif request.form['submit'] == 'preview':
+            return render_template('edit.html', entry=entry, preview=Entry(title=request.form['title'], content=request.form['content']))
     return render_template('create.html', entry=Entry(title='', content=''))
 
 @app.route('/<slug>/edit/', methods=['GET', 'POST'])
@@ -87,20 +90,22 @@ def create():
 def edit(slug):
     entry = get_object_or_404(Entry, Entry.slug == slug)
     if request.method == 'POST':
-        if request.form.get('title') and request.form.get('content'):
-            entry.title = request.form['title']
-            entry.content = request.form['content']
-            entry.published = request.form.get('published') or False
-            entry.save()
+        if request.form['submit'] == 'edit':
+            if request.form.get('title') and request.form.get('content'):
+                entry.title = request.form['title']
+                entry.content = request.form['content']
+                entry.published = request.form.get('published') or False
+                entry.save()
 
-            flash('Entry saved successfully.', 'success')
-            if entry.published:
-                return redirect(url_for('detail', slug=entry.slug))
+                flash('Entry saved successfully.', 'success')
+                if entry.published:
+                    return redirect(url_for('detail', slug=entry.slug))
+                else:
+                    return redirect(url_for('edit', slug=entry.slug))
             else:
-                return redirect(url_for('edit', slug=entry.slug))
-        else:
-            flash('Title and Content are required.', 'danger')
-
+                flash('Title and Content are required.', 'danger')
+        elif request.form['submit'] == 'preview':
+            return render_template('edit.html', entry=entry, preview=Entry(title=request.form['title'], content=request.form['content']))
     return render_template('edit.html', entry=entry)
 
 @app.route('/blog/<slug>/')

@@ -5,33 +5,37 @@
 {% block content_title %}Create entry{% endblock %}
 
 {% block content %}
-  <form action="{% block form_action %}{{ url_for('create') }}{% endblock %}" class="form-horizontal" method="post">
-    <div class="form-group">
-      <label for="title" class="col-sm-2 control-label">Title</label>
-      <div class="col-sm-10">
-        <input class="form-control" id="title" name="title" type="text" value={{ entry.title }}>
+  <form action="{{ url_for('create') }}" class="form-horizontal" method="post">
+    <div>
+      <h2><label for="title">Title</label></h2>
+      <div>
+        <input id="title" name="title" type="text" value={{ entry.title }}>
       </div>
     </div>
-    <div class="form-group">
-      <label for="Content" class="col-sm-2 control-label">Content</label>
-      <div class="col-sm-10">
-        <textarea class="form-control" id="content" name="content" style="height: 300px;">{{ entry.content }}</textarea>
+    <br><br>
+    <fieldset class="entry">
+    <div>
+      <h2><label for="Content">Content</label></h2>
+      <div>
+        <textarea class="content" id="content" name="content">{{ entry.content }}</textarea>
       </div>
     </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <div class="checkbox">
+        <div>
           <label>
             <input name="published" type="checkbox" value="y"{% if entry.published %} checked="checked"{% endif %}> Published?
           </label>
         </div>
+      <div>
+        <button type="submit" name='submit' value=Create>Create</button>
+        <a href="{{ url_for('index') }}">Cancel</a>
+        <button type="submit" formaction="#preview" value="preview" name='submit'>preview</button>
       </div>
-    </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <button class="btn btn-primary" type="submit">{% block save_button %}Create{% endblock %}</button>
-        <a class="btn btn-default" href="{{ url_for('index') }}">Cancel</a>
-      </div>
-    </div>
+    </fieldset>
+    {% if preview %}
+    <fieldset class='preview' id="preview">
+      <h1>{{preview.title}}</h1>
+      {{ preview.html_content }}
+    </fieldset>
+    {% endif %}
   </form>
 {% endblock %}

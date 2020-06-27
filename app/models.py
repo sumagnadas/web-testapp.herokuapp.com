@@ -72,8 +72,8 @@ class Entry(flask_db.Model):
         oembed_content = parse_html(
             markdown_content,
             oembed_providers,
-            urlize_all=True,
-            maxwidth=app.config['SITE_WIDTH'])
+            urlize_all=True)
+        self.html_preview = Markup(oembed_content)
         return Markup(oembed_content)
 
 
