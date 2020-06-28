@@ -82,7 +82,7 @@ def create():
             else:
                 flash('Title and Content are required.', 'danger')
         elif request.form['submit'] == 'preview':
-            return render_template('edit.html', entry=entry, preview=Entry(title=request.form['title'], content=request.form['content']))
+            return render_template('create.html', entry=Entry(title=request.form['title'], content=request.form['content']), preview=Entry(title=request.form['title'], content=request.form['content']))
     return render_template('create.html', entry=Entry(title='', content=''))
 
 @app.route('/<slug>/edit/', methods=['GET', 'POST'])
