@@ -24,9 +24,6 @@ class Entry(flask_db.Model):
         if not self.slug:
             self.slug = re.sub('[^\w]+', '-', self.title.lower())
         ret = super(Entry, self).save(*args, **kwargs)
-
-        # Store search content.
-        self.update_search_index()
         return ret
 
     def update_search_index(self):
