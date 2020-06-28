@@ -9,6 +9,7 @@ MarkupSafe==1.1.1
 micawber==0.5.1
 peewee==3.13.3
 pipdeptree==1.0.0
+psycopg2==2.8.5
 Pygments==2.6.1
 soupsieve==2.0.1
 urllib3==1.25.9
