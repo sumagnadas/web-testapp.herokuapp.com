@@ -8,6 +8,9 @@
   font-style: oblique;
   font-size: 20;
 }
+.values code{
+  font-style: normal;
+}
 .name{
   color: blue;
   font-size: 35;

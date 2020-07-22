@@ -3,7 +3,7 @@ from playhouse.flask_utils import FlaskDB,  object_list, get_object_or_404
 from datetime import date, timedelta
 import os
 
-ADMIN_PASSWORD = 'secret'
+ADMIN_PASSWORD = os.environ['ADMIN_PASSWORD']
 APP_DIR = os.path.dirname(os.path.realpath(__file__))
 DATABASE = os.environ['DATABASE_URL']
 DEBUG = False
